@@ -30,16 +30,26 @@ public class AuthenticationStepDefinition {
 		authenticationPage.fillPassword(password);
 	}
 
-	@When("je click sur lebouton login")
+	@When("je click sur le bouton login")
 	public void jeClickSurLeboutonLogin() {
 		authenticationPage.clickOnBtnLogin();
 	}
-	@Then("je me redérige vers la  page home")
+	@Then("je me rederige vers la page home {string}")
 	public void jeMeRedérigeVersLaPageHome(String msg) {
 	String message = AuthenticationPage.homePage.getText();
-	Assert.assertTrue(message.contains("msg"));
+	Assert.assertTrue(message.contains(msg));
 	}
-
+	
+/*Logout*/
+	@When("je clique sur l icone logout")
+	public void jeCliqueSurLIconeLogout() {
+		authenticationPage.clickOnLogout();
+	}
+	
+	@When("je clique sur le bouton logout")
+	public void jeCliqueSurLeBoutonLogout() {
+		authenticationPage.clickOnbtnLogout();
+	}
 
 
 }
